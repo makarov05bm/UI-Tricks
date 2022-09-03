@@ -20,3 +20,12 @@
         }
     }
 ```
+
+```css
+    .content {
+        height: 0;
+        transition: height 0.2s cubic-bezier(.51, .92, .24, 1.0);
+        
+        // the padding on a child ul or div not .content
+    }
+```

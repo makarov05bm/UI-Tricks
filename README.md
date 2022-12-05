@@ -82,3 +82,40 @@ border-left: 6px solid transparent;
 border-right: 6px solid transparent;
 border-bottom: 6px solid rgba($plain-dark, 0.6);
 ```
+
+<br/>
+
+## Page scroll
+
+```css
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 5000px;
+    background-color: #eee;
+}
+
+.scroller {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 5px;
+    background-color: #0075ff;
+    z-index: 1000;
+}
+```
+
+```js
+let el = document.querySelector('.scroller')
+let height = document.documentElement.scrollHeight - document.documentElement.clientHeight
+
+document.addEventListener('scroll', () => {
+    let scrollTop = document.documentElement.scrollTop
+    el.style.width = `${(scrollTop / height) * 100}%`
+})
+```

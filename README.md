@@ -145,3 +145,18 @@ body {
 }
 
 ```
+
+<br/>
+
+## Prevent scrolling on an element
+
+```js
+menu.addEventListener('wheel', preventScroll)
+
+const preventScroll = (e) => {
+    e.preventDefault()
+    e.stopPropagation()
+
+    return false
+}
+```

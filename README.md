@@ -180,3 +180,271 @@ color-scheme: only light;
   color-scheme: light dark;
 }
 ```
+
+<br/>
+
+## Theme Switcher
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/styles.css">
+    <script src="app.js" defer></script>
+    <title>Document</title>
+</head>
+<body class="light">
+    <nav class="navbar">
+        <ul class="navbar-nav">
+            <li class="navbar-item">Home</li>
+            <li class="navbar-item">About</li>
+            <li class="navbar-item">Blog</li>
+
+            <li class="nav-item has-dropdown">
+                <a href="#">Theme</a>
+                <ul class="dropdown">
+                    <li class="dropdown-item">
+                        <a id='light' href="#">light</a>
+                    </li>
+                    <li class="dropdown-item">
+                        <a id='dark' href="#">dark</a>
+                    </li>
+                    <li class="dropdown-item">
+                        <a id='solar' href="#">solarize</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+    <header>
+        <img src="logo.png" alt="logo" class="logo">
+        <h1>Fron-End Web Development, <br>Fired Up</h1>
+
+        <p>Express.js, Next.js, Javascript, mongoDB</p>
+    </header>
+
+    <main>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor iure, modi possimus illum voluptatem, reiciendis tempore rem explicabo, quo fuga corporis deleniti. Vero unde deleniti laudantium veniam excepturi nulla recusandae?
+    </main>
+</body>
+</html>
+```
+
+```scss
+:root {
+    --gray0: #f8f8f8;
+    --gray1: #dbe1e8;
+    --gray2: #b2becd;
+    --gray3: #6c7983;
+    --gray4: #454e56;
+    --gray5: #2a2e35;
+    --gray6: #12181b;
+    --blue: #0084a5;
+    --purple: #a82dd1;
+    --yellow: #fff565;
+}
+
+.light {
+    --bg: var(--gray0);
+    --bg-nav: linear-gradient(to right, var(--gray1), var(--gray3));
+    --bg-dropdown: var(--gray0);
+    --text: var(--gray6);
+    --border-color: var(--blue);
+    --bg-solar: var(--yellow);
+}
+  
+
+.dark {
+    --bg: var(--gray5);
+    --bg-nav: linear-gradient(to right, var(--gray5), var(--gray6));
+    --bg-dropdown: var(--gray6);
+    --text: var(--gray0);
+    --border-color: var(--purple);
+    --bg-solar: var(--blue);
+}
+
+.solar {
+    --gray0: #fbffd4;
+    --gray1: #f7f8d0;
+    --gray2: #b6f880;
+    --gray3: #5ec72d;
+    --gray4: #3ea565;
+    --gray5: #005368;
+    --gray6: #003d4c;
+
+    --bg: var(--gray0);
+    --bg-nav: linear-gradient(to right, var(--gray1), var(--gray3));
+    --bg-dropdown: var(--gray0);
+    --text: var(--gray6);
+    --border-color: var(--blue);
+    --bg-solar: var(--yellow);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;   
+}
+
+body {
+    line-height: 1.6;
+    background: var(--bg);
+    color: var(--text);
+    transition: background 500ms ease-in-out, color 100ms ease-in-out;
+}
+
+ul {
+    list-style-type: none;
+}
+
+a {
+    color: currentColor;
+    text-decoration: none;
+}
+
+.navbar {
+    width: 100%;
+    padding: 1rem;
+    background: var(--bg-nav);
+    background-color: var(--bg-nav);
+}
+
+.navbar-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 100%;
+}
+
+header {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    padding-bottom: 3.5rem;
+    text-align: center;
+    background: var(--bg-nav);
+    clip-path: polygon(50% 0, 100% 0, 100% 65%, 50% 100%, 0 65%, 0 0);
+}
+
+.dropdown {
+    position: absolute;
+    width: 500px;
+    opacity: 0;
+    z-index: 2;
+    border-top: 2px solid var(--border-color);
+    background-color: var(--bg-dropdown);
+
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 1.4rem;
+    padding: 0.5rem;
+    transform: translateX(-43%);
+
+    transition: opacity 0.15s ease-out;
+}
+
+.has-dropdown:focus-within .dropdown {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.dropdown-item a {
+    width: 100%;
+    height: 100%;
+    size: 0.7rem;
+    padding-left: 10px;
+    font-weight: bold;
+
+    &::before {
+        content: '';
+        border: 2px solid #fff ;
+        border-radius: 50%;
+        width: 2rem;
+        height: 2rem;
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 10px;
+    }
+}
+
+#dark::before {
+    background: #2a2e35;
+}
+
+#light::before {
+    background: #ffffff;
+}
+
+#solar::before {
+    background: var(--bg-solar);
+}
+
+@keyframes color-rotate {
+    from {
+        filter: hue-rotate(0deg);
+    } to {
+        filter: hue-rotate(360deg);
+    }
+}
+
+.logo:hover {
+    animation-name: color-rotate;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+```
+
+```js
+const darkBtn = document.getElementById('dark')
+const lightBtn = document.getElementById('light')
+const solarBtn = document.getElementById('solar')
+const body = document.body
+
+const theme = localStorage.getItem('theme')
+const isSolar = localStorage.getItem('isSolar')
+
+if (theme) {
+    body.classList.add(theme)
+    isSolar && body.classList.add('solar')
+}
+
+darkBtn.onclick = () => {
+    body.classList.replace('light', 'dark')
+    body.classList.replace('solar', 'dark')
+
+    localStorage.setItem('theme', 'dark')
+}
+
+lightBtn.onclick = () => {
+    body.classList.replace('dark', 'light')
+    body.classList.replace('solar', 'light')
+
+    localStorage.setItem('theme', 'light')
+}
+
+solarBtn.onclick = () => {
+    if (body.classList.contains('solar')) {
+        body.classList.remove('solar')
+        solarBtn.style.csstext = `
+            --bg-solar: var(--yellow);
+        `
+        solarBtn.innerText = 'solarize'
+
+        localStorage.removeItem('isSolar')
+    } else {
+        body.classList.replace('light', 'solar')
+        body.classList.replace('dark', 'solar')
+        solarBtn.innerText = 'normalize'
+
+        localStorage.setItem('isSolar', true)
+    }
+}
+```

@@ -427,6 +427,10 @@ lightBtn.onclick = () => {
     body.classList.replace('dark', 'light')
     body.classList.replace('solar', 'light')
 
+    lightBtn.style.cssText = `
+        --gray0: #eee;
+    `
+
     localStorage.setItem('theme', 'light')
 }
 

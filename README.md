@@ -160,3 +160,19 @@ const preventScroll = (e) => {
     return false
 }
 ```
+
+## color-scheme
+
+```scss
+color-scheme: normal;
+color-scheme: light;
+color-scheme: dark;
+color-scheme: light dark;
+color-scheme: only light;
+
+// To opt the entire page into the user's color scheme preferences declare color-scheme on the :root element.
+
+:root {
+  color-scheme: light dark;
+}
+```

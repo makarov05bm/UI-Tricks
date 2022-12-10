@@ -161,16 +161,20 @@ const preventScroll = (e) => {
 }
 ```
 
+<br/>
+
 ## color-scheme
 
 ```scss
+// normal: Indicates that the element isn't aware of any color schemes, and so should be rendered using the browser's default color scheme
 color-scheme: normal;
 color-scheme: light;
 color-scheme: dark;
 color-scheme: light dark;
+// only: Forbids the user agent from overriding the color scheme for the element
 color-scheme: only light;
 
-// To opt the entire page into the user's color scheme preferences declare color-scheme on the :root element.
+// To opt the entire page into the user's color scheme preferences declare color-scheme on the :root element
 
 :root {
   color-scheme: light dark;

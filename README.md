@@ -163,6 +163,17 @@ const preventScroll = (e) => {
 
 <br/>
 
+## Paper squares
+
+```css
+background-size: 40px 40px;
+  background-image:
+    linear-gradient(to right, grey 1px, transparent 1px),
+    linear-gradient(to bottom, grey 1px, transparent 1px);
+```
+
+<br/>
+
 ## color-scheme
 
 ```scss

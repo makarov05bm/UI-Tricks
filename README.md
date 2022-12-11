@@ -186,6 +186,24 @@ hr {
 
 <br/>
 
+## Style Navbar On Scroll
+
+```js
+const [isActive, setIsActive] = useState(false)
+
+    useEffect(() => {
+        window.onscroll = () => {
+            if (window.scrollY > 100) {
+                setIsActive(true)
+            } else {
+                setIsActive(false)
+            }
+        }
+    }, [])
+```
+
+<br/>
+
 ## color-scheme
 
 ```scss

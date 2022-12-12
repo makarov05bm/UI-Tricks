@@ -204,6 +204,16 @@ const [isActive, setIsActive] = useState(false)
 
 <br/>
 
+## Youtube Videos
+
+```html
+<iframe width="420" height="315"
+	src="https://www.youtube.com/embed/1ENiVwk8idM">
+</iframe>
+```
+
+<br/>
+
 ## color-scheme
 
 ```scss

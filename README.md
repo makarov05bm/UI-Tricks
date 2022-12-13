@@ -214,6 +214,14 @@ const [isActive, setIsActive] = useState(false)
 
 <br/>
 
+## Detect if device is a phone
+
+```js
+/Android|iPhone/i.test(navigator.userAgent)
+```
+
+<br/>
+
 ## color-scheme
 
 ```scss

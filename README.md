@@ -222,6 +222,39 @@ const [isActive, setIsActive] = useState(false)
 
 <br/>
 
+## Animation on intersaction
+
+> The element we want to animate initially has the `className` hidden
+
+```js
+useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show')
+        } else {
+          entry.target.classList.remove('show')
+        }
+      })
+    })
+
+    observer.observe(procedureRef.current)
+  }, [])
+```
+
+```css
+.hidden {
+    opacity: 0;
+    filter: blur(4px);
+    transition: all 1.2s;
+}
+
+.show {
+    opacity: 1;
+    filter: blur(0);
+}
+```
+
 ## color-scheme
 
 ```scss

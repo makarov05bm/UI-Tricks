@@ -275,6 +275,16 @@ color-scheme: only light;
 
 <br/>
 
+## Number Formatter
+
+```js
+let formatter = Intl.NumberFormat('en', { notation: 'compact' });
+
+<p>{formatter.format(nbrLikes)}</p>
+```
+
+<br/>
+
 ## Theme Switcher
 
 ```html

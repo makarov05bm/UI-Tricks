@@ -350,6 +350,19 @@ let formatter = Intl.NumberFormat('en', { notation: 'compact' });
 
 <br/>
 
+## Hiding File Input
+
+```html
+<div className="img-container">
+	<label htmlFor="picture_btn">
+		<Image src='/images/profile.png' height={60} width={60} alt='profile_picture' />
+		<input type="file" id='picture_btn' style={{display: 'none'}} />
+	</label>
+</div>
+```
+
+<br/>
+
 ## Theme Switcher
 
 ```html

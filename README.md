@@ -285,6 +285,71 @@ let formatter = Intl.NumberFormat('en', { notation: 'compact' });
 
 <br/>
 
+## Textarea auth heigh stretching
+
+```css
+.txtstuff {
+    resize: none;
+    overflow: hidden;
+}
+
+.hiddendiv {
+    padding: 5px;
+    display: block;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    background-color: red;
+    position: absolute;
+    top: -100%;
+    left: -100%;
+
+    &::after {
+        content: '\200B';
+    }
+}
+
+.common {
+    width: 100%;
+    min-height: 80px;
+    font-family: inherit;
+    font-size: 0.9rem;
+    overflow: hidden;
+}
+```
+
+```js
+    const [edit, setEdit] = useState(false)
+    
+    const handleInput = (e) => {
+        let content = null
+
+        if (edit) {
+            content = e.target.value
+            setVal(content)
+            txt.current.style.height = `${hiddenDiv.current.getBoundingClientRect().height}px`
+        }
+
+        if (e.target.value === '') {
+            txt.current.style.height = '20px'
+        }
+    }
+    
+    {!edit ? (
+            <p className='post-body'>
+                {postBody}
+            </p>
+        ) : (
+            <>
+                <textarea className='txtstuff' onChange={handleInput} ref={txt}>{postBody}</textarea>
+                <div className="hiddendiv common" ref={hiddenDiv}>{val}</div>
+            </>
+        )}
+    
+```
+
+<br/>
+
 ## Theme Switcher
 
 ```html

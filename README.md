@@ -363,6 +363,29 @@ let formatter = Intl.NumberFormat('en', { notation: 'compact' });
 
 <br/>
 
+## Local Image Upload Display
+
+```html
+<input type="file" id='picture_btn' style={{display: 'none'}} onChange={(e) => handleDisplay(e)} />
+```
+
+```js
+const handleDisplay = (e) => {
+    if (imagesList.length < 4) {
+      setImagesList([...imagesList, URL.createObjectURL(e.target.files[0])])
+    }
+  }
+
+  const handleCancel = (index) => {
+    if (imagesList.length > 0) {
+      const tmpArr = imagesList.filter(item => item !== imagesList[index])
+      setImagesList([...tmpArr])
+    }
+  }
+```
+
+<br/>
+
 ## Theme Switcher
 
 ```html
